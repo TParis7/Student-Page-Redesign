@@ -172,7 +172,7 @@ body.fm-active { background: #fff; margin:0; padding:0; }
 .fm-dual-card-bg { position: absolute; inset: 0; z-index: 0; }
 .fm-dual-card-bg img { width: 100%; height: 100%; object-fit: cover; opacity: 0.54; }
 .fm-dual-card-bg::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.85) 60%); }
-.fm-dual-card-content { position: relative; z-index: 1; background: rgba(255,255,255,0.7); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border-radius: 14px; padding: 24px; }
+.fm-dual-card-content { position: relative; z-index: 1; background: rgba(255,255,255,0.5); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); border-radius: 14px; padding: 24px; }
 .fm-dual-card-content .fm-section-label { margin-bottom: 10px; }
 .fm-dual-card-content h3 { font-family: 'Space Grotesk', sans-serif; font-size: 1.5rem; font-weight: 700; margin-bottom: 10px; color: #1a1a1a; }
 .fm-dual-card-content h3 em { font-style: normal; color: #D93A3A; }
@@ -225,14 +225,14 @@ body.fm-active { background: #fff; margin:0; padding:0; }
 .p3-footer { background: #0a0a0a; padding: 64px 40px 32px; color: #fff; }
 .p3-footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; max-width: 1180px; margin: 0 auto; }
 .p3-footer-brand p { color: rgba(255,255,255,0.5); font-size: 0.85rem; line-height: 1.6; margin-top: 12px; }
-.p3-footer-brand img { height: 36px; margin-bottom: 8px; }
-.p3-footer h6 { font-family: 'Satoshi', 'Inter', sans-serif; font-size: 0.7rem; font-weight: 600; letter-spacing: 1.2px; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 16px; }
+.p3-footer-logo { height: 36px; margin-bottom: 8px; }
+.p3-footer-tagline { color: rgba(255,255,255,0.5); font-size: 0.85rem; line-height: 1.6; margin-top: 12px; }
+.p3-footer-location { color: rgba(255,255,255,0.35); font-size: 0.8rem; margin-top: 4px; }
+.p3-footer-col-title { font-family: 'Satoshi', 'Inter', sans-serif; font-size: 0.7rem; font-weight: 600; letter-spacing: 1.2px; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 16px; }
 .p3-footer-col { display: flex; flex-direction: column; gap: 10px; }
-.p3-footer-col a { color: rgba(255,255,255,0.6); font-size: 0.85rem; text-decoration: none; transition: color 0.2s; }
-.p3-footer-col a:hover { color: #fff; }
-.p3-footer-bottom { display: flex; justify-content: center; align-items: center; gap: 4px; padding-top: 24px; margin-top: 40px; border-top: 1px solid rgba(255,255,255,0.08); flex-wrap: wrap; }
-.p3-footer-bottom p { margin: 0; color: rgba(255,255,255,0.4); font-size: 12px; }
-.p3-footer-bottom a { font-size: 12px; text-decoration: underline; color: rgba(255,255,255,0.4); }
+.p3-footer-link { color: rgba(255,255,255,0.6); font-size: 0.85rem; text-decoration: none; transition: color 0.2s; }
+.p3-footer-link:hover { color: #fff; }
+.p3-footer-bottom { margin-top: 40px; border-top: 1px solid rgba(255,255,255,0.08); }
 
 /* ═══ RESPONSIVE ═══ */
 @media (max-width: 991px) {
@@ -622,40 +622,40 @@ body.fm-active { background: #fff; margin:0; padding:0; }
     </div><!-- /#fm-root -->
 
     <!-- ═══ FOOTER (matches homepage) ═══ -->
-    <footer class="p3-footer">
+    <section class="p3-footer">
         <div class="p3-footer-grid">
             <div class="p3-footer-brand">
-                <img src="https://cdn.prod.website-files.com/69b02f65f0068e9fb16f09f7/69b02f65f0068e9fb16f0df1_P3%20Logo.svg" alt="P3 Logo">
-                <p>Unlocking life-changing opportunities for young visionaries. Free on iOS &amp; Android.</p>
-                <p style="color:rgba(255,255,255,0.35);font-size:0.8rem;margin-top:4px;">Chicago, IL &middot; Founded 2018</p>
+                <img src="https://cdn.prod.website-files.com/69b02f65f0068e9fb16f09f7/69b02f65f0068e9fb16f0df1_P3%20Logo.svg" loading="lazy" alt="P3 - Pulse of Perseverance" class="p3-footer-logo">
+                <p class="p3-footer-tagline">Unlocking life-changing opportunities for young visionaries. Free on iOS &amp; Android.</p>
+                <p class="p3-footer-location">Chicago, IL &middot; Founded 2018</p>
             </div>
             <div class="p3-footer-col">
-                <h6>Platform</h6>
-                <a href="https://pulseofp3.org/for-students">For Students</a>
-                <a href="https://pulseofp3.org/for-mentors">For Mentors</a>
-                <a href="https://pulseofp3.org/partner">For Institutions</a>
-                <a href="https://pulseofp3.org/scholarships">Scholarships</a>
+                <h4 class="p3-footer-col-title">Platform</h4>
+                <a href="https://pulseofp3.org/for-students" class="p3-footer-link">For Students</a>
+                <a href="https://pulseofp3.org/partner" class="p3-footer-link">For Institutions</a>
+                <a href="https://pulseofp3.org/for-mentors" class="p3-footer-link">For Mentors</a>
+                <a href="https://pulseofp3.org/scholarships" class="p3-footer-link">Scholarships</a>
             </div>
             <div class="p3-footer-col">
-                <h6>Company</h6>
-                <a href="https://pulseofp3.org/about/about">About</a>
-                <a href="https://pulseofp3.org/donate">Donate</a>
-                <a href="https://pulseofp3.org/terms-conditions">Terms &amp; Conditions</a>
+                <h4 class="p3-footer-col-title">About</h4>
+                <a href="https://pulseofp3.org/about/about" class="p3-footer-link">Our Story</a>
+                <a href="https://pulseofp3.org/about/about#team" class="p3-footer-link">Team</a>
+                <a href="https://drive.google.com/file/d/1IrFocCsboO6mLZsG3GAlHjmKv_V7a9Sn/view?usp=drive_link" class="p3-footer-link">Annual Report</a>
+                <a href="https://pulseofp3.org/about/in-the-press" class="p3-footer-link">Press</a>
             </div>
             <div class="p3-footer-col">
-                <h6>Connect</h6>
-                <a href="https://www.instagram.com/pulseofp3/" target="_blank">Instagram</a>
-                <a href="https://www.linkedin.com/company/pulse-of-perseverance/" target="_blank">LinkedIn</a>
-                <a href="https://twitter.com/PulseofP3" target="_blank">X / Twitter</a>
-                <a href="https://www.youtube.com/@PulseofPerseverance" target="_blank">YouTube</a>
-                <a href="https://www.facebook.com/pulseofp3" target="_blank">Facebook</a>
+                <h4 class="p3-footer-col-title">Connect</h4>
+                <a href="https://www.instagram.com/pulseofp3/" class="p3-footer-link">Instagram</a>
+                <a href="https://www.linkedin.com/company/pulseofperseverance/" class="p3-footer-link">LinkedIn</a>
+                <a href="https://www.youtube.com/@PulseofPerseverance" target="_blank" class="p3-footer-link">YouTube</a>
+                <a href="https://pulseofp3.org/donate" class="p3-footer-link">Donate</a>
             </div>
         </div>
-        <div class="p3-footer-bottom">
-            <p>&copy; 2026 Pulse of Perseverance Project. All rights reserved.</p>
-            <a href="https://pulseofp3.org/terms-conditions">Terms &amp; Conditions</a>
+        <div class="p3-footer-bottom" style="display:flex;justify-content:center;align-items:center;gap:4px;padding-top:24px;flex-wrap:wrap;">
+            <p style="margin:0;color:rgba(255,255,255,0.4);font-size:12px;">&copy; 2026 Pulse of Perseverance Project. All rights reserved.</p>
+            <a href="https://pulseofp3.org/terms-conditions" class="p3-footer-link" style="font-size:12px;text-decoration:underline;color:rgba(255,255,255,0.4);">Terms &amp; Conditions</a>
         </div>
-    </footer>
+    </section>
 
     <!-- ═══ JS (scroll-darken nav + hamburger toggle) ═══ -->
     <script>
