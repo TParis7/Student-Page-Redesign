@@ -4,6 +4,9 @@
      Injects CSS, builds nav, footer, and all page sections via DOM manipulation
      ══════════════════════════════════════════════════════════════ */
 
+  // Guard against double execution (site-level + page-level script loading)
+  if (document.getElementById('fm-root')) return;
+
   // ═══ 1. INJECT CSS ═══
   var style = document.createElement('style');
   style.innerHTML = `/* ══════════════════════════════════════════════════════════════
@@ -11,7 +14,7 @@
    ══════════════════════════════════════════════════════════════ */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
-body.fm-active { background: #fff; margin:0; padding:0; }
+body.fm-active { background: #fff; margin:0; padding:0; opacity:1 !important; }
 #fm-root { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; color: #1a1a1a; -webkit-font-smoothing: antialiased; line-height: 1.6; }
 #fm-root img { max-width: 100%; display: block; }
 #fm-root a { text-decoration: none; color: inherit; }
