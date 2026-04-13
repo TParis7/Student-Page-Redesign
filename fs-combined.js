@@ -7,6 +7,14 @@
   // Guard against double execution (site-level + page-level script loading)
   if (document.getElementById('fm-root')) return;
 
+  // ═══ 0. CANCEL WEBFLOW IX2 BODY ANIMATION ═══
+  // Webflow IX2 page-load interactions use the Web Animations API to fade body in.
+  // This overrides ALL CSS (even !important) and inline styles. Must cancel it.
+  if (document.body.getAnimations) {
+    document.body.getAnimations().forEach(function(a) { a.cancel(); });
+  }
+  document.body.style.setProperty('opacity', '1', 'important');
+
   // ═══ 1. INJECT CSS ═══
   var style = document.createElement('style');
   style.innerHTML = `/* ══════════════════════════════════════════════════════════════
@@ -171,7 +179,7 @@ body.fm-active { background: #fff; margin:0; padding:0; opacity:1 !important; }
 .fm-dual-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
 .fm-dual-card { position: relative; border-radius: 20px; overflow: hidden; padding: 40px 36px; min-height: 617px; display: flex; flex-direction: column; justify-content: flex-end; border: 1px solid #eee; }
 .fm-dual-card-bg { position: absolute; inset: 0; z-index: 0; }
-.fm-dual-card-bg img { width: 100%; height: 100%; object-fit: cover; opacity: 0.54; }
+.fm-dual-card-bg img { width: 100%; height: 100%; object-fit: cover; object-position: center 30%; opacity: 0.54; }
 .fm-dual-card-bg::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.85) 60%); }
 .fm-dual-card-content { position: relative; z-index: 1; background: rgba(255,255,255,0.5); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); border-radius: 14px; padding: 24px; }
 .fm-dual-card-content .fm-section-label { margin-bottom: 10px; }
@@ -216,22 +224,22 @@ body.fm-active { background: #fff; margin:0; padding:0; opacity:1 !important; }
 .pp-mob-menu.open span:nth-child(1) { transform: rotate(45deg) translate(8px, 8px); }
 .pp-mob-menu.open span:nth-child(2) { opacity: 0; }
 .pp-mob-menu.open span:nth-child(3) { transform: rotate(-45deg) translate(7px, -7px); }
-.pp-mob-overlay { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(58, 12, 24, 0.95); backdrop-filter: blur(10px); z-index: 999; display: none; flex-direction: column; padding: 100px 40px 40px; gap: 24px; opacity: 0; transform: translateY(-100%); transition: opacity 0.3s, transform 0.3s; overflow-y: auto; }
-.pp-mob-overlay.open { display: flex; opacity: 1; transform: translateY(0); }
-.pp-mob-overlay-link, .pp-mob-overlay-cta { font-family: 'Inter', sans-serif; font-size: 16px; color: rgba(255,255,255,0.85); text-decoration: none; transition: color 0.2s; }
-.pp-mob-overlay-link.w--current { color: #fff; font-weight: 600; }
-.pp-mob-overlay-cta { background: #D93A3A; color: #fff; padding: 12px 28px; border-radius: 50px; display: inline-block; text-align: center; margin-top: 16px; }
+.pp-mob-overlay { position: fixed; inset: 0; background-color: rgba(26, 10, 16, 0.97); z-index: 999; display: none; flex-direction: column; justify-content: center; align-items: center; gap: 28px; opacity: 0; transform: translateY(-100%); transition: opacity 0.3s, transform 0.3s; overflow-y: auto; }
+.pp-mob-overlay.open { display: flex !important; opacity: 1; transform: translateY(0); }
+.pp-mob-overlay-link, .pp-mob-overlay-cta { font-family: 'Inter', sans-serif; font-size: 1.25rem; font-weight: 500; color: #fff; opacity: 0.85; text-decoration: none; transition: color 0.2s; }
+.pp-mob-overlay-link.w--current { opacity: 1; font-weight: 600; }
+.pp-mob-overlay-cta { opacity: 1; background: #D93A3A; color: #fff; padding: 12px 32px; border-radius: 100px; display: inline-block; text-align: center; margin-top: 8px; font-size: 1rem; font-weight: 600; }
 
 /* ═══ FOOTER ═══ */
 .p3-footer { background: #0a0a0a; padding: 64px 40px 32px; color: #fff; }
 .p3-footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; max-width: 1180px; margin: 0 auto; }
 .p3-footer-brand p { color: rgba(255,255,255,0.5); font-size: 0.85rem; line-height: 1.6; margin-top: 12px; }
 .p3-footer-logo { height: 36px; margin-bottom: 8px; }
-.p3-footer-tagline { color: rgba(255,255,255,0.5); font-size: 0.85rem; line-height: 1.6; margin-top: 12px; }
-.p3-footer-location { color: rgba(255,255,255,0.35); font-size: 0.8rem; margin-top: 4px; }
-.p3-footer-col-title { font-family: 'Satoshi', 'Inter', sans-serif; font-size: 0.7rem; font-weight: 600; letter-spacing: 1.2px; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 16px; }
+.p3-footer-tagline { color: rgba(255,255,255,0.5); font-size: 13px; line-height: 1.6; margin-top: 12px; }
+.p3-footer-location { color: rgba(255,255,255,0.5); font-size: 13px; margin-top: 4px; }
+.p3-footer-col-title { font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(255,255,255,0.8); margin-bottom: 16px; }
 .p3-footer-col { display: flex; flex-direction: column; gap: 10px; }
-.p3-footer-link { color: rgba(255,255,255,0.6); font-size: 0.85rem; text-decoration: none; transition: color 0.2s; }
+.p3-footer-link { color: rgba(255,255,255,0.6); font-size: 13px; text-decoration: none; transition: color 0.2s; }
 .p3-footer-link:hover { color: #fff; }
 .p3-footer-bottom { margin-top: 40px; border-top: 1px solid rgba(255,255,255,0.08); }
 
@@ -303,6 +311,17 @@ body.fm-active { background: #fff; margin:0; padding:0; opacity:1 !important; }
   .fm-milestone-content { grid-template-columns: 1fr; }
 }`;
   document.head.appendChild(style);
+
+  // ═══ 1b. LOAD GOOGLE FONTS (Inter, Space Grotesk, Satoshi) ═══
+  var fontPreconnect = document.createElement('link');
+  fontPreconnect.rel = 'preconnect';
+  fontPreconnect.href = 'https://fonts.googleapis.com';
+  document.head.appendChild(fontPreconnect);
+
+  var fontLink = document.createElement('link');
+  fontLink.rel = 'stylesheet';
+  fontLink.href = 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=Satoshi:wght@400;600;700&display=swap';
+  document.head.appendChild(fontLink);
 
   // ═══ 2. ADD fm-active CLASS TO BODY ═══
   document.body.classList.add('fm-active');
