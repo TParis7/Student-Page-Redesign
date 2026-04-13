@@ -225,7 +225,7 @@ body.fm-active { background: #fff; margin:0; padding:0; opacity:1 !important; }
 .p3-nav-links a.w--current, .p3-nav-links a.p3-nav-link.w--current { color: rgba(255,255,255,0.85) !important; font-weight: 500 !important; }
 .p3-nav.scrolled .p3-nav-links a.w--current { color: rgba(255,255,255,0.85) !important; font-weight: 500 !important; }
 .pp-home-desktop-hide { display: none; }
-.p3-nav-cta { background: #D93A3A; color: #fff !important; padding: 10px 24px; border-radius: 50px; font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 600; text-decoration: none; transition: background 0.2s, transform 0.2s; margin-left: 24px; }
+.p3-nav-cta { background: #D93A3A; color: #fff !important; padding: 10px 24px; border-radius: 50px; font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 600; text-decoration: none; transition: background 0.2s, transform 0.2s; margin-left: 0; }
 .p3-nav-cta:hover { background: #b52f2f; transform: translateY(-1px); }
 
 /* ═══ MOBILE MENU ═══ */
@@ -257,12 +257,9 @@ body.fm-active { background: #fff; margin:0; padding:0; opacity:1 !important; }
 .fm-h1-br-mob { display: none; }
 .fm-h1-br-dt { display: inline; }
 
-/* ═══ DUAL CARD WATERMARK — Financial Support card shifted +20% upwards ═══ */
-.fm-dual-card:first-child .fm-dual-card-bg img { object-position: center 10% !important; }
-
-/* ═══ DUAL CARD BLOCKQUOTE (improved spacing) ═══ */
-.fm-dual-card-content blockquote { margin-top: 4px; margin-bottom: 24px; padding: 6px 0 6px 16px; font-size: 0.9rem; line-height: 1.65; color: #555; border-left: 3px solid #D93A3A; font-style: italic; quotes: none; }
-.fm-dual-card-content blockquote::before, .fm-dual-card-content blockquote::after { content: none; }
+/* ═══ DUAL CARD WATERMARK — Financial Support card shifted ~50% upwards from default center ═══ */
+.fm-dual-card:first-child .fm-dual-card-bg img { object-position: center -20% !important; }
+/* (Blockquote uses original CSS rule above — matches GitHub concept exactly.) */
 
 /* ═══ RESPONSIVE ═══ */
 @media (max-width: 991px) {
@@ -371,7 +368,7 @@ body.fm-active { background: #fff; margin:0; padding:0; opacity:1 !important; }
   // ═══ HERO ═══
   var hero = document.createElement('section');
   hero.className = 'fm-hero';
-  hero.innerHTML = `<img src="https://tparis7.github.io/Mentor-Page-Redesign/Copy%20of%20Versus_P3_20260910-IMG9479_MollJeanNye.jpg" alt="" class="fm-hero-watermark"><div class="fm-container"><div class="fm-hero-content"><h1>Your <em>career</em><br class="fm-h1-br-dt"> <em>accelerator</em>,<br class="fm-h1-br-mob"> powered<br class="fm-h1-br-dt"> by community.</h1><p>We are invested in your success. Get direct access to real professionals, opportunities, and career paths &mdash; 100% free on the P3 app. Get registered today.</p><div class="fm-hero-buttons"><a href="https://pulseofp3.org/download" class="fm-btn fm-btn-white fm-btn-arrow">Get the App</a><a href="#fm-get-started" class="fm-btn fm-btn-white-outline">How It Works</a></div><div class="fm-hero-stats"><div><div class="fm-hero-stat-num">900+</div><div class="fm-hero-stat-label">Registered Users</div></div><div><div class="fm-hero-stat-num">$100K+</div><div class="fm-hero-stat-label">Scholarships Awarded</div></div><div><div class="fm-hero-stat-num">4.9&#9733;</div><div class="fm-hero-stat-label">App Store Rating</div></div></div></div></div>`;
+  hero.innerHTML = `<img src="https://tparis7.github.io/Mentor-Page-Redesign/Copy%20of%20Versus_P3_20260910-IMG9479_MollJeanNye.jpg" alt="" class="fm-hero-watermark"><div class="fm-container"><div class="fm-hero-content"><h1>Your <em>career</em><br class="fm-h1-br-dt"> <em>accelerator</em>,<br class="fm-h1-br-mob"> powered<br class="fm-h1-br-dt"> by community.</h1><p>We are invested in your success. Get direct access to real professionals, opportunities, and career paths &mdash; 100% free on the P3 app.</p><div class="fm-hero-buttons"><a href="https://pulseofp3.org/download" class="fm-btn fm-btn-white fm-btn-arrow">Get the App</a><a href="#fm-get-started" class="fm-btn fm-btn-white-outline">How It Works</a></div><div class="fm-hero-stats"><div><div class="fm-hero-stat-num">900+</div><div class="fm-hero-stat-label">Registered Users</div></div><div><div class="fm-hero-stat-num">$100K+</div><div class="fm-hero-stat-label">Scholarships Awarded</div></div><div><div class="fm-hero-stat-num">4.9&#9733;</div><div class="fm-hero-stat-label">App Store Rating</div></div></div></div></div>`;
   root.appendChild(hero);
 
   // ═══ LOGO BAR ═══
