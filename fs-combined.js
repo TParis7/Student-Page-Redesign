@@ -221,9 +221,9 @@ body.fm-active { background: #fff; margin:0; padding:0; opacity:1 !important; }
 .p3-nav-logo-img { height: 36px; max-height: 36px; }
 .p3-nav-links { display: flex; align-items: center; gap: 32px; margin-left: auto; }
 .p3-nav-links a { font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 500; color: rgba(255,255,255,0.85); text-decoration: none; transition: color 0.2s; }
-/* scrolled nav stays dark — links remain white */
-.p3-nav-links a.w--current { color: #fff; font-weight: 600; }
-.p3-nav.scrolled .p3-nav-links a.w--current { color: #fff; }
+/* Active page link: NOT bold, matches other links exactly */
+.p3-nav-links a.w--current, .p3-nav-links a.p3-nav-link.w--current { color: rgba(255,255,255,0.85) !important; font-weight: 500 !important; }
+.p3-nav.scrolled .p3-nav-links a.w--current { color: rgba(255,255,255,0.85) !important; font-weight: 500 !important; }
 .pp-home-desktop-hide { display: none; }
 .p3-nav-cta { background: #D93A3A; color: #fff !important; padding: 10px 24px; border-radius: 50px; font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 600; text-decoration: none; transition: background 0.2s, transform 0.2s; margin-left: 24px; }
 .p3-nav-cta:hover { background: #b52f2f; transform: translateY(-1px); }
@@ -237,7 +237,7 @@ body.fm-active { background: #fff; margin:0; padding:0; opacity:1 !important; }
 .pp-mob-overlay { position: fixed; inset: 0; background-color: rgba(26, 10, 16, 0.97); z-index: 999; display: none; flex-direction: column; justify-content: center; align-items: center; gap: 28px; opacity: 0; transform: translateY(-100%); transition: opacity 0.3s, transform 0.3s; overflow-y: auto; }
 .pp-mob-overlay.open { display: flex !important; opacity: 1; transform: translateY(0); }
 .pp-mob-overlay-link, .pp-mob-overlay-cta { font-family: 'Inter', sans-serif; font-size: 1.25rem; font-weight: 500; color: #fff; opacity: 0.85; text-decoration: none; transition: color 0.2s; }
-.pp-mob-overlay-link.w--current { opacity: 1; font-weight: 600; }
+.pp-mob-overlay-link.w--current { opacity: 0.85 !important; font-weight: 500 !important; }
 .pp-mob-overlay-cta { opacity: 1; background: #D93A3A; color: #fff; padding: 12px 32px; border-radius: 100px; display: inline-block; text-align: center; margin-top: 8px; font-size: 1rem; font-weight: 600; }
 
 /* ═══ FOOTER ═══ */
@@ -252,6 +252,17 @@ body.fm-active { background: #fff; margin:0; padding:0; opacity:1 !important; }
 .p3-footer-link { color: rgba(255,255,255,0.6); font-size: 13px; text-decoration: none; transition: color 0.2s; }
 .p3-footer-link:hover { color: #fff; }
 .p3-footer-bottom { margin-top: 40px; border-top: 1px solid rgba(255,255,255,0.08); }
+
+/* ═══ HERO H1 LINE BREAKS (desktop default) ═══ */
+.fm-h1-br-mob { display: none; }
+.fm-h1-br-dt { display: inline; }
+
+/* ═══ DUAL CARD WATERMARK — Financial Support card shifted +20% upwards ═══ */
+.fm-dual-card:first-child .fm-dual-card-bg img { object-position: center 10% !important; }
+
+/* ═══ DUAL CARD BLOCKQUOTE (improved spacing) ═══ */
+.fm-dual-card-content blockquote { margin-top: 4px; margin-bottom: 24px; padding: 6px 0 6px 16px; font-size: 0.9rem; line-height: 1.65; color: #555; border-left: 3px solid #D93A3A; font-style: italic; quotes: none; }
+.fm-dual-card-content blockquote::before, .fm-dual-card-content blockquote::after { content: none; }
 
 /* ═══ RESPONSIVE ═══ */
 @media (max-width: 991px) {
@@ -275,6 +286,9 @@ body.fm-active { background: #fff; margin:0; padding:0; opacity:1 !important; }
   .fm-hero .fm-container { padding: 0 28px; }
   .fm-hero-content { max-width: 100%; text-align: center; }
   .fm-hero h1 { font-size: 1.75rem; }
+  /* Mobile: 2 lines only — break only at the comma */
+  .fm-h1-br-dt { display: none !important; }
+  .fm-h1-br-mob { display: inline !important; }
   .fm-hero p { font-size: 1rem; margin-bottom: 28px; max-width: 100%; }
   .fm-hero-watermark { display: none; }
   .fm-hero-buttons { flex-direction: column; gap: 12px; }
@@ -357,7 +371,7 @@ body.fm-active { background: #fff; margin:0; padding:0; opacity:1 !important; }
   // ═══ HERO ═══
   var hero = document.createElement('section');
   hero.className = 'fm-hero';
-  hero.innerHTML = `<img src="https://tparis7.github.io/Mentor-Page-Redesign/Copy%20of%20Versus_P3_20260910-IMG9479_MollJeanNye.jpg" alt="" class="fm-hero-watermark"><div class="fm-container"><div class="fm-hero-content"><h1>Your <em>career</em><br><em>accelerator</em>, powered<br>by community.</h1><p>We are invested in your success. Get direct access to real professionals, real opportunities, and real career paths &mdash; all free on the P3 app. Start today.</p><div class="fm-hero-buttons"><a href="https://pulseofp3.org/download" class="fm-btn fm-btn-white fm-btn-arrow">Get the App</a><a href="#fm-get-started" class="fm-btn fm-btn-white-outline">How It Works</a></div><div class="fm-hero-stats"><div><div class="fm-hero-stat-num">900+</div><div class="fm-hero-stat-label">Registered Users</div></div><div><div class="fm-hero-stat-num">$100K+</div><div class="fm-hero-stat-label">Scholarships Awarded</div></div><div><div class="fm-hero-stat-num">4.9&#9733;</div><div class="fm-hero-stat-label">App Store Rating</div></div></div></div></div>`;
+  hero.innerHTML = `<img src="https://tparis7.github.io/Mentor-Page-Redesign/Copy%20of%20Versus_P3_20260910-IMG9479_MollJeanNye.jpg" alt="" class="fm-hero-watermark"><div class="fm-container"><div class="fm-hero-content"><h1>Your <em>career</em><br class="fm-h1-br-dt"> <em>accelerator</em>,<br class="fm-h1-br-mob"> powered<br class="fm-h1-br-dt"> by community.</h1><p>We are invested in your success. Get direct access to real professionals, opportunities, and career paths &mdash; 100% free on the P3 app. Get registered today.</p><div class="fm-hero-buttons"><a href="https://pulseofp3.org/download" class="fm-btn fm-btn-white fm-btn-arrow">Get the App</a><a href="#fm-get-started" class="fm-btn fm-btn-white-outline">How It Works</a></div><div class="fm-hero-stats"><div><div class="fm-hero-stat-num">900+</div><div class="fm-hero-stat-label">Registered Users</div></div><div><div class="fm-hero-stat-num">$100K+</div><div class="fm-hero-stat-label">Scholarships Awarded</div></div><div><div class="fm-hero-stat-num">4.9&#9733;</div><div class="fm-hero-stat-label">App Store Rating</div></div></div></div></div>`;
   root.appendChild(hero);
 
   // ═══ LOGO BAR ═══
