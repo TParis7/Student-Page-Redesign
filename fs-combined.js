@@ -196,7 +196,8 @@ body.fm-active { background: #fff; margin:0; padding:0; opacity:1 !important; }
 .fm-dual-card-content h3 { font-family: 'Space Grotesk', sans-serif; font-size: 1.5rem; font-weight: 700; margin-bottom: 10px; color: #1a1a1a; }
 .fm-dual-card-content h3 em { font-style: normal; color: #D93A3A; }
 .fm-dual-card-content p { font-size: 0.9rem; color: #555; line-height: 1.6; margin-bottom: 16px; }
-.fm-dual-card-content blockquote { font-size: 0.85rem; font-style: italic; color: #666; border-left: 3px solid #D93A3A; padding-left: 14px; margin-bottom: 20px; line-height: 1.6; }
+.fm-dual-card-content blockquote { background: transparent !important; background-color: transparent !important; border: 0 !important; border-left: 3px solid #D93A3A !important; border-radius: 0 !important; box-shadow: none !important; font-size: 0.85rem !important; font-style: italic !important; color: #666 !important; padding: 0 0 0 14px !important; margin: 0 0 20px !important; line-height: 1.6 !important; quotes: none; }
+.fm-dual-card-content blockquote::before, .fm-dual-card-content blockquote::after { content: none !important; }
 .fm-dual-card-features { display: flex; flex-direction: column; gap: 8px; margin-bottom: 20px; }
 .fm-dual-card-features .fm-dual-feat { display: flex; align-items: flex-start; gap: 8px; font-size: 0.85rem; color: #444; }
 .fm-dual-card-features .fm-dual-feat::before { content: '\\2713'; color: #D93A3A; font-weight: 700; flex-shrink: 0; }
