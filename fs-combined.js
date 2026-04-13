@@ -10,10 +10,20 @@
   // ═══ 0. CANCEL WEBFLOW IX2 BODY ANIMATION ═══
   // Webflow IX2 page-load interactions use the Web Animations API to fade body in.
   // This overrides ALL CSS (even !important) and inline styles. Must cancel it.
-  if (document.body.getAnimations) {
-    document.body.getAnimations().forEach(function(a) { a.cancel(); });
+  // Run immediately AND on load/DOMContentLoaded since IX2 may init after this script.
+  function cancelBodyAnimations() {
+    if (document.body.getAnimations) {
+      document.body.getAnimations().forEach(function(a) { a.cancel(); });
+    }
+    document.body.style.setProperty('opacity', '1', 'important');
   }
-  document.body.style.setProperty('opacity', '1', 'important');
+  cancelBodyAnimations();
+  document.addEventListener('DOMContentLoaded', cancelBodyAnimations);
+  window.addEventListener('load', cancelBodyAnimations);
+  // Also poll briefly in case IX2 starts with a delay
+  setTimeout(cancelBodyAnimations, 100);
+  setTimeout(cancelBodyAnimations, 500);
+  setTimeout(cancelBodyAnimations, 1500);
 
   // ═══ 1. INJECT CSS ═══
   var style = document.createElement('style');
