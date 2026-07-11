@@ -151,38 +151,30 @@ body.fm-active { background: #fff; margin:0; padding:0; opacity:1 !important; }
 .fm-feature-list li { display: flex; align-items: flex-start; gap: 10px; font-size: 0.86rem; color: #444; }
 .fm-feature-list li::before { content: '\\2713'; color: #D93A3A; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
 
-/* ═══ MILESTONES ═══ */
-.fm-milestones { background: linear-gradient(135deg, #3a0c18 0%, #4a1020 40%, #2a0e16 100%); color: #fff; padding: 48px 0; }
-.fm-milestones .fm-section-label { color: #ff8a8a; }
+/* ═══ MILESTONES — web-platform band (homepage For-Institutions style) ═══ */
+.fm-milestones { background: linear-gradient(135deg, #2e0614 0%, #4A1020 55%, #2e0614 100%); color: #fff; padding: 64px 0; position: relative; overflow: hidden; }
+.fm-milestones::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 55% 70% at 80% 50%, rgba(217,58,58,0.16), transparent 70%); pointer-events: none; }
+.fm-milestones .fm-container { position: relative; z-index: 1; }
+.fm-milestones .fm-section-label { background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.8); }
 .fm-milestones .fm-section-heading { color: #fff; }
-.fm-milestones .fm-section-sub { color: rgba(255,255,255,0.7); }
-.fm-milestone-content { display: grid; grid-template-columns: 1fr 1fr; gap: 36px; align-items: center; margin-top: 28px; }
-.fm-milestone-visual { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 20px; padding: 32px; }
-.fm-pathway-label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1.5px; color: rgba(255,255,255,0.5); margin-bottom: 12px; }
-.fm-pathway-title { font-family: 'Space Grotesk', sans-serif; font-size: 1.3rem; font-weight: 700; margin-bottom: 8px; }
-.fm-pathway-progress { display: flex; align-items: center; gap: 12px; margin-bottom: 24px; }
-.fm-progress-bar { flex: 1; height: 6px; border-radius: 3px; background: rgba(255,255,255,0.15); overflow: hidden; }
-.fm-progress-fill { height: 100%; width: 27%; background: linear-gradient(90deg, #D93A3A, #ff6b6b); border-radius: 3px; }
-.fm-milestone-items { display: flex; flex-direction: column; gap: 12px; }
-.fm-ms-item { display: flex; align-items: flex-start; gap: 14px; padding: 12px 14px; border-radius: 12px; }
-.fm-ms-item.completed { opacity: 0.6; }
-.fm-ms-item.active { background: rgba(217,58,58,0.15); border: 1px solid rgba(217,58,58,0.3); }
-.fm-ms-dot { width: 24px; height: 24px; border-radius: 50%; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: 0.7rem; margin-top: 2px; }
-.fm-ms-dot.done { background: #4CAF50; color: #fff; }
-.fm-ms-dot.current { background: #D93A3A; border: 3px solid #ff8a8a; }
-.fm-ms-dot.upcoming { background: rgba(255,255,255,0.15); border: 2px solid rgba(255,255,255,0.3); }
-.fm-ms-item-text { font-size: 0.88rem; color: rgba(255,255,255,0.85); }
-.fm-ms-item.active .fm-ms-item-text { color: #fff; font-weight: 500; }
-.fm-milestone-details { display: flex; flex-direction: column; gap: 20px; }
-.fm-ms-detail-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 14px; padding: 18px 22px 12px; display: flex; gap: 16px; align-items: flex-start; }
-.fm-ms-detail-icon { width: 40px; height: 40px; border-radius: 10px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; }
-.fm-ms-detail-icon.red { background: rgba(217,58,58,0.2); }
-.fm-ms-detail-icon.blue { background: rgba(59,130,246,0.2); }
-.fm-ms-detail-icon.green { background: rgba(34,197,94,0.2); }
-.fm-ms-detail-icon.amber { background: rgba(245,158,11,0.2); }
-.fm-ms-detail-icon svg { width: 20px; height: 20px; }
-.fm-ms-detail-text h4 { font-size: 1rem; font-weight: 700; margin-bottom: 4px; color: #fff; }
-.fm-ms-detail-text p { font-size: 0.85rem; color: rgba(255,255,255,0.6); line-height: 1.55; }
+.fm-milestones .fm-section-heading em { color: #D93A3A; }
+.fm-mi2-grid { display: grid; grid-template-columns: 1fr 1.15fr; gap: 56px; align-items: center; }
+.fm-mi2-lede { font-size: 1rem; color: rgba(255,255,255,0.72); line-height: 1.65; margin: 0 0 20px; max-width: 470px; }
+.fm-mi2-list { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 11px; margin: 0 0 26px; }
+.fm-mi2-list li { display: flex; gap: 11px; align-items: flex-start; font-size: 0.9rem; color: rgba(255,255,255,0.85); line-height: 1.5; }
+.fm-mi2-list li svg { width: 17px; height: 17px; flex-shrink: 0; margin-top: 2.5px; color: #D93A3A; }
+.fm-mi2-list li strong { font-weight: 600; color: inherit; }
+.fm-mi2-btn { display: inline-flex; align-items: center; gap: 9px; background: transparent; color: #fff; border: 1.5px solid rgba(255,255,255,0.4); padding: 12px 26px; border-radius: 100px; font-weight: 600; font-size: 0.9rem; text-decoration: none; transition: all 0.3s; }
+.fm-mi2-btn:hover { border-color: #D93A3A; color: #fff; background: rgba(217,58,58,0.18); transform: translateY(-2px); }
+.fm-browser { border-radius: 12px; overflow: hidden; background: #16161a; box-shadow: 0 24px 70px rgba(20,5,16,0.35), 0 4px 18px rgba(20,5,16,0.18); border: 1px solid rgba(255,255,255,0.06); }
+.fm-browser-bar { height: 34px; display: flex; align-items: center; gap: 12px; padding: 0 14px; background: #232329; }
+.fm-browser-dots { display: flex; gap: 6px; flex-shrink: 0; }
+.fm-browser-dots span { width: 10px; height: 10px; border-radius: 50%; }
+.fm-browser-dots span:nth-child(1) { background: #e0564f; }
+.fm-browser-dots span:nth-child(2) { background: #e0a33e; }
+.fm-browser-dots span:nth-child(3) { background: #57a464; }
+.fm-browser-url { flex: 1; max-width: 320px; margin: 0 auto; background: rgba(255,255,255,0.07); border-radius: 6px; font-size: 11px; font-weight: 500; color: rgba(255,255,255,0.55); text-align: center; padding: 4px 14px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.fm-browser img { width: 100%; display: block; }
 
 /* ═══ DUAL CARDS (Scholarships + Book) ═══ */
 .fm-dual-cards { background: #fff; padding: 48px 0; }
@@ -214,6 +206,13 @@ body.fm-active { background: #fff; margin:0; padding:0; opacity:1 !important; }
 .fm-cta-section h2 { font-size: 2.4rem; font-weight: 700; margin-bottom: 16px; }
 .fm-cta-section p { font-size: 1.05rem; color: rgba(255,255,255,0.7); max-width: 560px; margin: 0 auto 32px; line-height: 1.7; }
 .fm-cta-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+.fm-cta-badges { display: flex; gap: 14px; justify-content: center; align-items: center; margin-bottom: 26px; }
+.fm-cta-badges img { height: 48px; width: auto; display: block; }
+.fm-cta-badges a { transition: transform 0.3s; display: inline-block; }
+.fm-cta-badges a:hover { transform: translateY(-2px); }
+.fm-cta-note { font-size: 0.9rem !important; color: rgba(255,255,255,0.55) !important; margin: 0 auto !important; }
+.fm-cta-note a { color: #fff; font-weight: 600; text-decoration: underline; text-underline-offset: 3px; transition: color 0.3s; }
+.fm-cta-note a:hover { color: #ff6b6b; }
 
 /* ═══ NAV BAR (matches hp-shared-sections.js / p3-nav) ═══ */
 .p3-nav { position: fixed; top: 0; left: 0; right: 0; height: auto; padding: 16px 40px; display: flex; align-items: center; justify-content: space-between; background: transparent; transition: background 0.3s, box-shadow 0.3s, backdrop-filter 0.3s; z-index: 1000; }
@@ -310,13 +309,17 @@ body.fm-active { background: #fff; margin:0; padding:0; opacity:1 !important; }
   .fm-why-card-role { font-size: 0.72rem; margin-bottom: 6px; }
   .fm-feature-row { gap: 24px; margin-bottom: 32px; }
   .fm-feature-text h3 { font-size: 1.2rem; }
-  .fm-milestone-content { gap: 32px; }
+  .fm-mi2-grid { grid-template-columns: 1fr; gap: 32px; }
+  .fm-mi2-copy { text-align: center; }
+  .fm-mi2-lede { margin-left: auto; margin-right: auto; }
+  .fm-mi2-list { max-width: 420px; margin: 0 auto 24px; text-align: left; }
   .fm-community-gallery .fm-container { margin-bottom: 24px; }
   .fm-cta-section h2 { font-size: 1.6rem; }
   .fm-cta-section p { font-size: 0.92rem; }
-  .fm-milestones .fm-container > .fm-section-label { display: flex !important; width: fit-content; margin-left: auto !important; margin-right: auto !important; }
-  .fm-milestones .fm-container > .fm-section-heading,
-  .fm-milestones .fm-container > .fm-section-sub { text-align: center !important; }
+  .fm-cta-badges img { height: 42px; }
+  .fm-milestones .fm-section-label { display: flex !important; width: fit-content; margin-left: auto !important; margin-right: auto !important; }
+  .fm-milestones .fm-section-heading,
+  .fm-milestones .fm-section-sub { text-align: center !important; }
   .fm-dual-grid { grid-template-columns: 1fr; }
   .fm-dual-card { min-height: 520px; padding: 32px 24px; }
   .p3-footer-grid { display: grid !important; grid-template-columns: 1fr 1fr !important; gap: 24px 16px !important; }
@@ -330,7 +333,6 @@ body.fm-active { background: #fff; margin:0; padding:0; opacity:1 !important; }
   .fm-section-heading { font-size: 1.4rem; }
   .fm-gs-steps { grid-template-columns: 1fr; max-width: 340px; margin: 0 auto; }
   .fm-why-grid { grid-template-columns: 1fr; }
-  .fm-milestone-content { grid-template-columns: 1fr; }
 }`;
   document.head.appendChild(style);
 
@@ -369,7 +371,7 @@ body.fm-active { background: #fff; margin:0; padding:0; opacity:1 !important; }
   // ═══ HERO ═══
   var hero = document.createElement('section');
   hero.className = 'fm-hero';
-  hero.innerHTML = `<img src="https://tparis7.github.io/Mentor-Page-Redesign/Copy%20of%20Versus_P3_20260910-IMG9479_MollJeanNye.jpg" alt="" class="fm-hero-watermark"><div class="fm-container"><div class="fm-hero-content"><h1>Your <em>career</em><br class="fm-h1-br-dt"> <em>accelerator</em>,<br class="fm-h1-br-mob"> powered<br class="fm-h1-br-dt"> by community.</h1><p>We are invested in your success. Get direct access to real professionals, opportunities, and career paths &mdash; 100% free on the P3 app.</p><div class="fm-hero-buttons"><a href="https://pulseofp3.org/download" class="fm-btn fm-btn-white fm-btn-arrow">Get the App</a><a href="#fm-get-started" class="fm-btn fm-btn-white-outline">How It Works</a></div><div class="fm-hero-stats"><div><div class="fm-hero-stat-num">900+</div><div class="fm-hero-stat-label">Registered Users</div></div><div><div class="fm-hero-stat-num">$100K+</div><div class="fm-hero-stat-label">Scholarships Awarded</div></div><div><div class="fm-hero-stat-num">4.9&#9733;</div><div class="fm-hero-stat-label">App Store Rating</div></div></div></div></div>`;
+  hero.innerHTML = `<img src="https://tparis7.github.io/Mentor-Page-Redesign/Copy%20of%20Versus_P3_20260910-IMG9479_MollJeanNye.jpg" alt="" class="fm-hero-watermark"><div class="fm-container"><div class="fm-hero-content"><h1>Your <em>career</em><br class="fm-h1-br-dt"> <em>accelerator</em>,<br class="fm-h1-br-mob"> powered<br class="fm-h1-br-dt"> by community.</h1><p>We are invested in your success. Get direct access to real professionals, opportunities, and career paths &mdash; 100% free on the P3 app.</p><div class="fm-hero-buttons"><a href="https://pulseofp3.org/download" class="fm-btn fm-btn-white fm-btn-arrow">Get the App</a><a href="#fm-get-started" class="fm-btn fm-btn-white-outline">How It Works</a></div><div class="fm-hero-stats"><div><div class="fm-hero-stat-num">1,000+</div><div class="fm-hero-stat-label">Registered Users</div></div><div><div class="fm-hero-stat-num">$100K+</div><div class="fm-hero-stat-label">Scholarships Awarded</div></div><div><div class="fm-hero-stat-num">4.9&#9733;</div><div class="fm-hero-stat-label">App Store Rating</div></div></div></div></div>`;
   root.appendChild(hero);
 
   // ═══ LOGO BAR ═══
@@ -402,7 +404,7 @@ body.fm-active { background: #fff; margin:0; padding:0; opacity:1 !important; }
   var milestones = document.createElement('section');
   milestones.className = 'fm-milestones';
   milestones.id = 'fm-milestones';
-  milestones.innerHTML = `<div class="fm-container"><div class="fm-section-label">New Feature &mdash; Coming April 2026</div><h2 class="fm-section-heading">Pathway Milestones</h2><p class="fm-section-sub">Track your real-life progress over time. Check off milestones as you grow &mdash; from campus visits to your first job &mdash; so your mentors can tailor guidance to exactly where you are.</p><div class="fm-milestone-content"><div class="fm-milestone-visual"><div class="fm-pathway-label">Your Pathway</div><div class="fm-pathway-title">High School Pathway</div><div class="fm-pathway-progress"><div class="fm-progress-bar"><div class="fm-progress-fill"></div></div><div class="fm-progress-text">3 of 11</div></div><div class="fm-milestone-items"><div class="fm-ms-item completed"><div class="fm-ms-dot done">&#10003;</div><div class="fm-ms-item-text">Started high school (9th grade)</div></div><div class="fm-ms-item completed"><div class="fm-ms-dot done">&#10003;</div><div class="fm-ms-item-text">Joined extracurricular activities (school clubs, sports teams, etc.)</div></div><div class="fm-ms-item completed"><div class="fm-ms-dot done">&#10003;</div><div class="fm-ms-item-text">Worked at a first part-time job or volunteer position</div></div><div class="fm-ms-item active"><div class="fm-ms-dot current"></div><div class="fm-ms-item-text">Started a leadership role at school (team captain, student council, etc.)</div></div><div class="fm-ms-item"><div class="fm-ms-dot upcoming"></div><div class="fm-ms-item-text">Completed standardized testing (SAT, ACT, etc.)</div></div><div class="fm-ms-item"><div class="fm-ms-dot upcoming"></div><div class="fm-ms-item-text">Visited colleges and researched options</div></div></div></div><div class="fm-milestone-details"><div class="fm-ms-detail-card"><div class="fm-ms-detail-icon red"><svg viewBox="0 0 24 24" fill="none" stroke="#D93A3A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div><div class="fm-ms-detail-text"><h4>Track Your Wins</h4><p>See your milestones light up as you complete them. Celebrate achievements and build momentum toward your goals.</p></div></div><div class="fm-ms-detail-card"><div class="fm-ms-detail-icon blue"><svg viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg></div><div class="fm-ms-detail-text"><h4>Personalized Guidance</h4><p>Your mentors can see exactly where you are on your journey and tailor their advice to your specific needs and next steps.</p></div></div><div class="fm-ms-detail-card"><div class="fm-ms-detail-icon green"><svg viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg></div><div class="fm-ms-detail-text"><h4>Aiming for Success</h4><p>Clear milestones mapped to your academic stage &mdash; High School, College, or Young Professional &mdash; so you always know what's next.</p></div></div><div class="fm-ms-detail-card"><div class="fm-ms-detail-icon amber"><svg viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg></div><div class="fm-ms-detail-text"><h4>Shared Language</h4><p>Milestones create a common framework between you, your mentors, and partner institutions &mdash; aligning everyone around your progress.</p></div></div></div></div></div>`;
+  milestones.innerHTML = `<div class="fm-container"><div class="fm-mi2-grid"><div class="fm-mi2-copy"><div class="fm-section-label">Pathway Milestones</div><h2 class="fm-section-heading">Every milestone, <em>on one screen.</em></h2><p class="fm-mi2-lede">The Mentee Milestone Framework turns the long climb to opportunity into a clear, achievable pathway, tracked from high school to first job.</p><ul class="fm-mi2-list"><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span><strong>Guided pathways</strong> with checkpoints you can act on</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span><strong>Progress at a glance:</strong> see how far you&#39;ve come, and what&#39;s next</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span><strong>Synced everywhere:</strong> one journey across app and web</span></li></ul><a href="https://www.pulseofp3.org/platform" class="fm-mi2-btn">Explore the Web App <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" width="15" height="15"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a></div><div class="fm-mi2-visual"><div class="fm-browser"><div class="fm-browser-bar"><div class="fm-browser-dots"><span></span><span></span><span></span></div><div class="fm-browser-url">platform.pulseofp3.org/milestones</div></div><img src="https://tparis7.github.io/Platform-Page/shots/milestones-crop.webp?v=20260708a" alt="Milestones: the full pathway journey on one screen" loading="lazy"></div></div></div></div>`;
   root.appendChild(milestones);
 
   // ═══ DUAL CARDS ═══
@@ -414,13 +416,13 @@ body.fm-active { background: #fff; margin:0; padding:0; opacity:1 !important; }
   // ═══ COMMUNITY GALLERY ═══
   var gallery = document.createElement('section');
   gallery.className = 'fm-community-gallery';
-  gallery.innerHTML = `<div class="fm-container"><div class="fm-section-label">Community</div><h2 class="fm-section-heading">Join <em>+800</em> Students Nationwide</h2><p class="fm-section-sub" style="margin:0 auto">Mentorship moments, campus events, and career breakthroughs.</p></div><div class="fm-gallery-track"><img src="https://tparis7.github.io/Mentor-Page-Redesign/224A1273_Original.jpg" alt="P3"><img src="https://tparis7.github.io/Mentor-Page-Redesign/Copy%20of%20Copy%20of%20P3_Gala2025_0193.jpg" alt="P3"><img src="https://tparis7.github.io/Mentor-Page-Redesign/_P3_4718.jpg" alt="P3"><img src="https://tparis7.github.io/Mentor-Page-Redesign/P3_Gala2025_0425.jpg" alt="P3"><img src="https://tparis7.github.io/Mentor-Page-Redesign/IMG_7919.jpg" alt="P3"><img src="https://tparis7.github.io/Mentor-Page-Redesign/Copy%20of%20Versus_P3_20260910-IMG9096_MollJeanNye.jpg" alt="P3"><img src="https://tparis7.github.io/Mentor-Page-Redesign/IMG_6982.jpg" alt="P3"><img src="https://tparis7.github.io/Mentor-Page-Redesign/Copy%20of%20P3_Gala2025_0065.jpg" alt="P3"><img src="https://tparis7.github.io/Mentor-Page-Redesign/Doctors%20Park.jpg" alt="P3"><img src="https://tparis7.github.io/Mentor-Page-Redesign/group.jpeg" alt="P3"><img src="https://tparis7.github.io/Mentor-Page-Redesign/Copy%20of%20_P3_4641.jpg" alt="P3"><img src="https://tparis7.github.io/Mentor-Page-Redesign/Copy%20of%20Versus_P3_20260910-IMG9479_MollJeanNye.jpg" alt="P3"><img src="https://tparis7.github.io/Mentor-Page-Redesign/224A1273_Original.jpg" alt="P3"><img src="https://tparis7.github.io/Mentor-Page-Redesign/Copy%20of%20Copy%20of%20P3_Gala2025_0193.jpg" alt="P3"><img src="https://tparis7.github.io/Mentor-Page-Redesign/_P3_4718.jpg" alt="P3"><img src="https://tparis7.github.io/Mentor-Page-Redesign/P3_Gala2025_0425.jpg" alt="P3"><img src="https://tparis7.github.io/Mentor-Page-Redesign/IMG_7919.jpg" alt="P3"><img src="https://tparis7.github.io/Mentor-Page-Redesign/Copy%20of%20Versus_P3_20260910-IMG9096_MollJeanNye.jpg" alt="P3"><img src="https://tparis7.github.io/Mentor-Page-Redesign/IMG_6982.jpg" alt="P3"><img src="https://tparis7.github.io/Mentor-Page-Redesign/Copy%20of%20P3_Gala2025_0065.jpg" alt="P3"><img src="https://tparis7.github.io/Mentor-Page-Redesign/Doctors%20Park.jpg" alt="P3"><img src="https://tparis7.github.io/Mentor-Page-Redesign/group.jpeg" alt="P3"><img src="https://tparis7.github.io/Mentor-Page-Redesign/Copy%20of%20_P3_4641.jpg" alt="P3"><img src="https://tparis7.github.io/Mentor-Page-Redesign/Copy%20of%20Versus_P3_20260910-IMG9479_MollJeanNye.jpg" alt="P3"></div>`;
+  gallery.innerHTML = `<div class="fm-container"><div class="fm-section-label">Community</div><h2 class="fm-section-heading">Join <em>1,000+</em> Students Nationwide</h2><p class="fm-section-sub" style="margin:0 auto">Mentorship moments, campus events, and career breakthroughs.</p></div><div class="fm-gallery-track"><img src="https://tparis7.github.io/Mentor-Page-Redesign/224A1273_Original.jpg" alt="P3"><img src="https://tparis7.github.io/Mentor-Page-Redesign/Copy%20of%20Copy%20of%20P3_Gala2025_0193.jpg" alt="P3"><img src="https://tparis7.github.io/Mentor-Page-Redesign/_P3_4718.jpg" alt="P3"><img src="https://tparis7.github.io/Mentor-Page-Redesign/P3_Gala2025_0425.jpg" alt="P3"><img src="https://tparis7.github.io/Mentor-Page-Redesign/IMG_7919.jpg" alt="P3"><img src="https://tparis7.github.io/Mentor-Page-Redesign/Copy%20of%20Versus_P3_20260910-IMG9096_MollJeanNye.jpg" alt="P3"><img src="https://tparis7.github.io/Mentor-Page-Redesign/IMG_6982.jpg" alt="P3"><img src="https://tparis7.github.io/Mentor-Page-Redesign/Copy%20of%20P3_Gala2025_0065.jpg" alt="P3"><img src="https://tparis7.github.io/Mentor-Page-Redesign/Doctors%20Park.jpg" alt="P3"><img src="https://tparis7.github.io/Mentor-Page-Redesign/group.jpeg" alt="P3"><img src="https://tparis7.github.io/Mentor-Page-Redesign/Copy%20of%20_P3_4641.jpg" alt="P3"><img src="https://tparis7.github.io/Mentor-Page-Redesign/Copy%20of%20Versus_P3_20260910-IMG9479_MollJeanNye.jpg" alt="P3"><img src="https://tparis7.github.io/Mentor-Page-Redesign/224A1273_Original.jpg" alt="P3"><img src="https://tparis7.github.io/Mentor-Page-Redesign/Copy%20of%20Copy%20of%20P3_Gala2025_0193.jpg" alt="P3"><img src="https://tparis7.github.io/Mentor-Page-Redesign/_P3_4718.jpg" alt="P3"><img src="https://tparis7.github.io/Mentor-Page-Redesign/P3_Gala2025_0425.jpg" alt="P3"><img src="https://tparis7.github.io/Mentor-Page-Redesign/IMG_7919.jpg" alt="P3"><img src="https://tparis7.github.io/Mentor-Page-Redesign/Copy%20of%20Versus_P3_20260910-IMG9096_MollJeanNye.jpg" alt="P3"><img src="https://tparis7.github.io/Mentor-Page-Redesign/IMG_6982.jpg" alt="P3"><img src="https://tparis7.github.io/Mentor-Page-Redesign/Copy%20of%20P3_Gala2025_0065.jpg" alt="P3"><img src="https://tparis7.github.io/Mentor-Page-Redesign/Doctors%20Park.jpg" alt="P3"><img src="https://tparis7.github.io/Mentor-Page-Redesign/group.jpeg" alt="P3"><img src="https://tparis7.github.io/Mentor-Page-Redesign/Copy%20of%20_P3_4641.jpg" alt="P3"><img src="https://tparis7.github.io/Mentor-Page-Redesign/Copy%20of%20Versus_P3_20260910-IMG9479_MollJeanNye.jpg" alt="P3"></div>`;
   root.appendChild(gallery);
 
   // ═══ CTA ═══
   var cta = document.createElement('section');
   cta.className = 'fm-cta-section';
-  cta.innerHTML = `<div class="fm-container"><h2>Your future is too important to <em style="font-style:normal;background:linear-gradient(90deg,#ff6b6b,#ffa07a);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">leave to chance.</em></h2><p>Download the free P3 app today. Connect with mentors who believe in your potential, apply for scholarships, and start building the career you deserve.</p><div class="fm-cta-buttons"><a href="https://pulseofp3.org/download" class="fm-btn fm-btn-white fm-btn-arrow">Get the App</a><a href="https://calendar.app.google/HWHVSUkDqED55EXf7" target="_blank" class="fm-btn fm-btn-white-outline">Contact Us</a></div></div>`;
+  cta.innerHTML = `<div class="fm-container"><h2>Your next chapter starts <em style="font-style:normal;color:#ff6b6b">here.</em></h2><p>Find a mentor who believes in your potential, unlock scholarships, and build the career you deserve. It all starts with the free P3 app.</p><div class="fm-cta-badges"><a href="https://apps.apple.com/us/app/p3-pulse-of-perseverance/id6478132244" target="_blank" rel="noopener"><img src="https://cdn.prod.website-files.com/69b02f65f0068e9fb16f09f7/69b02f65f0068e9fb16f0ddf_ios%20badge.svg" alt="Download on the App Store"></a><a href="https://play.google.com/store/apps/details?id=com.P3.prod" target="_blank" rel="noopener"><img src="https://cdn.prod.website-files.com/69b02f65f0068e9fb16f09f7/69b02f65f0068e9fb16f0de0_android%20badge.svg" alt="Get it on Google Play"></a></div><p class="fm-cta-note">Prefer the big screen? <a href="https://www.pulseofp3.org/platform">Explore the Web App &rarr;</a></p></div>`;
   root.appendChild(cta);
 
   // ═══ INSERT fm-root INTO BODY ═══
