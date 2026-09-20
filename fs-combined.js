@@ -86,19 +86,22 @@ body.fm-active { background: #fff; margin:0; padding:0; opacity:1 !important; }
 .fm-why-mentor .fm-container > .fm-section-label { display: flex; width: fit-content; margin-left: auto; margin-right: auto; }
 .fm-why-mentor .fm-container > .fm-section-heading, .fm-why-mentor .fm-container > .fm-section-sub { text-align: center; }
 .fm-why-mentor .fm-container > .fm-section-sub { margin: 0 auto; }
-.fm-why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 32px; }
-.fm-why-card { background: #fff; border-radius: 16px; overflow: hidden; border: 1px solid #eee; transition: all 0.3s ease; }
-.fm-why-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.08); border-color: #D93A3A; }
-.fm-why-card-img { height: 180px; overflow: hidden; position: relative; }
-.fm-why-card-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s; }
-.fm-why-card-img img.top-align { object-position: center top; }
+ /* The card is the homepage's "Built for every side of the mission" card and the
+   Platform page's "One account. Every device." card, rule for rule (Thomas, Sep 19 2026):
+   same radius, same shadow and lift, same 16/9.2 visual with the same gradient foot,
+   same 20/22/24 body, same 19px Bricolage title over 14px/1.55 body text. The dark
+   band over the image and the crimson uppercase eyebrow under it are both gone: one
+   title per card, which is what made the three sections disagree. */
+.fm-why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-top: 32px; }
+.fm-why-card { background: #fff; border-radius: 20px; overflow: hidden; box-shadow: 0 2px 10px rgba(74,16,32,0.05); transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94); display: flex; flex-direction: column; }
+.fm-why-card:hover { transform: translateY(-6px); box-shadow: 0 20px 48px rgba(74,16,32,0.12); }
+.fm-why-card-img { position: relative; aspect-ratio: 16 / 9.2; overflow: hidden; background: #F0EBE5; }
+.fm-why-card-img img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
 .fm-why-card-img img.ascent { object-position: 50% 30%; }
-.fm-why-card:hover .fm-why-card-img img { transform: scale(1.05); }
-.fm-why-card-img .fm-why-card-overlay { position: absolute; bottom: 0; left: 0; right: 0; }
-#fm-root .fm-why-card-img .fm-why-card-overlay h3 { color: #fff; font-size: 1.1rem; font-weight: 600; background: rgba(0,0,0,0.55); padding: 10px 16px; backdrop-filter: blur(2px); letter-spacing: -0.005em; }
-.fm-why-card-body { padding: 20px; }
-.fm-why-card-role { font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; color: #D93A3A; margin-bottom: 8px; }
-.fm-why-card-body p { font-size: 0.88rem; color: #555; line-height: 1.6; margin-bottom: 12px; }
+.fm-why-card-img::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 55%, rgba(74,16,32,0.10) 100%); pointer-events: none; }
+.fm-why-card-body { padding: 20px 22px 24px; }
+#fm-root .fm-why-card-body h3 { font-family: 'Bricolage Grotesque', sans-serif; font-size: 19px; font-weight: 600; color: #1a1a1a; line-height: 1.25; margin-bottom: 8px; letter-spacing: -0.005em; }
+.fm-why-card-body p { font-size: 14px; color: #666; line-height: 1.55; margin-bottom: 0; }
 
 /* ═══ GET STARTED ═══ */
 .fm-get-started { background: #f8f6f3; position: relative; overflow: hidden; padding: 48px 0; }
@@ -150,8 +153,13 @@ body.fm-active { background: #fff; margin:0; padding:0; opacity:1 !important; }
 .fm-feature-text .fm-section-label { margin-bottom: 8px; }
 .fm-feature-text h3 { font-size: 1.5rem; font-weight: 600; margin-bottom: 10px; letter-spacing: -0.005em; }
 .fm-feature-text p { font-size: 0.9rem; color: #555; line-height: 1.6; margin-bottom: 14px; }
-.fm-feature-list { list-style: none; display: flex; flex-direction: column; gap: 6px; padding: 0; }
-.fm-feature-list li { display: flex; align-items: flex-start; gap: 10px; font-size: 0.86rem; color: #444; }
+ /* Measured against the Platform page's "Conversations. Stay connected." list and
+   set to its values (Thomas, Sep 19 2026): 11px between items, 14px/1.5 text. The
+   margin and padding resets are the fix, not the gap: Webflow's own stylesheet was
+   putting margin-bottom 8px and padding-left 8px on every li, so a 6px gap rendered
+   as 14px and no two lists on the site agreed. */
+.fm-feature-list { list-style: none; display: flex; flex-direction: column; gap: 11px; padding: 0; margin: 0; }
+.fm-feature-list li { display: flex; align-items: flex-start; gap: 10px; font-size: 14px; line-height: 1.5; color: #444; margin: 0; padding: 0; }
 .fm-feature-list li::before { content: '\\2713'; color: #D93A3A; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
 
 /* ═══ MILESTONES — web-platform band (homepage For-Institutions style) ═══ */
@@ -164,7 +172,7 @@ body.fm-active { background: #fff; margin:0; padding:0; opacity:1 !important; }
 .fm-mi2-grid { display: grid; grid-template-columns: 1fr 1.15fr; gap: 56px; align-items: center; }
 .fm-mi2-lede { font-size: 1rem; color: rgba(255,255,255,0.72); line-height: 1.65; margin: 0 0 20px; max-width: 470px; }
 .fm-mi2-list { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 11px; margin: 0 0 26px; }
-.fm-mi2-list li { display: flex; gap: 11px; align-items: flex-start; font-size: 0.9rem; color: rgba(255,255,255,0.85); line-height: 1.5; }
+.fm-mi2-list li { display: flex; gap: 11px; align-items: flex-start; font-size: 14px; line-height: 1.5; color: rgba(255,255,255,0.85); margin: 0; padding: 0; }
 .fm-mi2-list li svg { width: 17px; height: 17px; flex-shrink: 0; margin-top: 2.5px; color: #D93A3A; }
 .fm-mi2-list li strong { font-weight: 600; color: inherit; }
 .fm-mi2-btn { display: inline-flex; align-items: center; gap: 9px; background: transparent; color: #fff; border: 1.5px solid rgba(255,255,255,0.4); padding: 12px 26px; border-radius: 100px; font-weight: 600; font-size: 0.9rem; text-decoration: none; transition: all 0.3s; }
@@ -180,22 +188,24 @@ body.fm-active { background: #fff; margin:0; padding:0; opacity:1 !important; }
 .fm-browser img { width: 100%; display: block; }
 
 /* ═══ DUAL CARDS (Scholarships + Book) ═══ */
-.fm-dual-cards { background: #fff; padding: 48px 0; }
-.fm-dual-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
-.fm-dual-card { position: relative; border-radius: 20px; overflow: hidden; padding: 40px 36px; min-height: 617px; display: flex; flex-direction: column; justify-content: flex-end; border: 1px solid #eee; }
-.fm-dual-card-bg { position: absolute; inset: 0; z-index: 0; }
-.fm-dual-card-bg img { width: 100%; height: 100%; object-fit: cover; object-position: center 30%; opacity: 0.54; }
-.fm-dual-card-bg::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.85) 60%); }
-.fm-dual-card-content { position: relative; z-index: 1; background: rgba(255,255,255,0.5); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); border-radius: 14px; padding: 24px; }
-.fm-dual-card-content .fm-section-label { margin-bottom: 10px; }
-.fm-dual-card-content h3 { font-family: 'Bricolage Grotesque', sans-serif; font-size: 1.5rem; font-weight: 600; margin-bottom: 10px; color: #1a1a1a; letter-spacing: -0.005em; }
-.fm-dual-card-content h3 em { font-style: normal; color: #D93A3A; }
-.fm-dual-card-content p { font-size: 0.9rem; color: #555; line-height: 1.6; margin-bottom: 16px; }
-.fm-dual-card-content blockquote { background: transparent !important; background-color: transparent !important; border: 0 !important; border-left: 3px solid #D93A3A !important; border-radius: 0 !important; box-shadow: none !important; font-size: 0.85rem !important; font-style: italic !important; color: #666 !important; padding: 0 0 0 14px !important; margin: 0 0 20px !important; line-height: 1.6 !important; quotes: none; }
-.fm-dual-card-content blockquote::before, .fm-dual-card-content blockquote::after { content: none !important; }
-.fm-dual-card-features { display: flex; flex-direction: column; gap: 8px; margin-bottom: 20px; }
-.fm-dual-card-features .fm-dual-feat { display: flex; align-items: flex-start; gap: 8px; font-size: 0.85rem; color: #444; }
-.fm-dual-card-features .fm-dual-feat::before { content: '\\2713'; color: #D93A3A; font-weight: 700; flex-shrink: 0; }
+ /* One scholarship spotlight, not two cards (Thomas, Sep 19 2026). The P3 book card
+   was the other half of a two-card grid; with it gone the section had no shape, and a
+   full-width band with its own centred header was far too much page for one call to
+   action. So it is a single compact card: the photo is a fixed 300px column, the copy
+   carries its own heading rather than a section header above it, and the four
+   conditions sit in a 2x2 grid instead of a stacked list. */
+.fm-dual-cards { background: #fff; padding: 40px 0; }
+.fm-schol { display: grid; grid-template-columns: 320px 1fr; gap: 0; background: #FAF7F4; border-radius: 20px; overflow: hidden; align-items: stretch; max-width: 1060px; margin: 0 auto; }
+.fm-schol-visual { position: relative; overflow: hidden; background: #F0EBE5; }
+.fm-schol-visual img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 28%; }
+.fm-schol-body { padding: 28px 32px; }
+.fm-schol-body .fm-section-label { margin-bottom: 10px; }
+#fm-root .fm-schol-body h2 { font-family: 'Bricolage Grotesque', sans-serif; font-size: 1.55rem; font-weight: 600; color: #1a1a1a; line-height: 1.2; letter-spacing: -0.01em; margin-bottom: 8px; }
+#fm-root .fm-schol-body h2 em { font-style: normal; color: #D93A3A; }
+.fm-schol-body > p { font-size: 14px; color: #666; line-height: 1.55; margin-bottom: 16px; }
+.fm-schol-list { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 11px 20px; padding: 0; margin: 0 0 20px; }
+.fm-schol-list li { display: flex; align-items: flex-start; gap: 10px; font-size: 14px; line-height: 1.5; color: #444; margin: 0; padding: 0; }
+.fm-schol-list li::before { content: '\\2713'; color: #D93A3A; font-weight: 700; flex-shrink: 0; }
 
 /* ═══ COMMUNITY GALLERY ═══ */
 .fm-community-gallery { padding: 8px 0 48px; background: #fff; overflow: hidden; }
@@ -261,7 +271,6 @@ body.fm-active { background: #fff; margin:0; padding:0; opacity:1 !important; }
 .fm-h1-br-dt { display: inline; }
 
 /* ═══ DUAL CARD WATERMARK — Financial Support card shifted ~50% upwards from default center ═══ */
-.fm-dual-card:first-child .fm-dual-card-bg img { object-position: center -20% !important; }
 /* (Blockquote uses original CSS rule above — matches GitHub concept exactly.) */
 
 /* ═══ RESPONSIVE ═══ */
@@ -277,8 +286,9 @@ body.fm-active { background: #fff; margin:0; padding:0; opacity:1 !important; }
   .fm-feature-row, .fm-feature-row.reverse { grid-template-columns: 1fr; direction: ltr; }
   .fm-milestone-content { grid-template-columns: 1fr; }
   .fm-why-grid { grid-template-columns: repeat(2, 1fr); }
+  .fm-schol { grid-template-columns: 240px 1fr; }
+  .fm-schol-list { grid-template-columns: 1fr; }
   .fm-gs-steps { grid-template-columns: repeat(2, 1fr); }
-  .fm-dual-grid { grid-template-columns: 1fr; }
 }
 @media (max-width: 768px) {
   .fm-section { padding: 40px 0; }
@@ -306,10 +316,9 @@ body.fm-active { background: #fff; margin:0; padding:0; opacity:1 !important; }
   .fm-gs-step-body p { font-size: 0.8rem; }
   .fm-gs-bubbles { display: none; }
   .fm-why-grid { grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 32px; }
-  .fm-why-card-img { height: 140px; }
-  .fm-why-card-body { padding: 14px; }
-  .fm-why-card-body p { font-size: 0.82rem; margin-bottom: 8px; }
-  .fm-why-card-role { font-size: 0.72rem; margin-bottom: 6px; }
+  .fm-why-card-body { padding: 14px 16px 16px; }
+  #fm-root .fm-why-card-body h3 { font-size: 16px; margin-bottom: 4px; }
+  .fm-why-card-body p { font-size: 13px; }
   .fm-feature-row { gap: 24px; margin-bottom: 32px; }
   .fm-feature-text h3 { font-size: 1.2rem; }
   .fm-mi2-grid { grid-template-columns: 1fr; gap: 32px; }
@@ -323,8 +332,6 @@ body.fm-active { background: #fff; margin:0; padding:0; opacity:1 !important; }
   .fm-milestones .fm-section-label { display: flex !important; width: fit-content; margin-left: auto !important; margin-right: auto !important; }
   .fm-milestones .fm-section-heading,
   .fm-milestones .fm-section-sub { text-align: center !important; }
-  .fm-dual-grid { grid-template-columns: 1fr; }
-  .fm-dual-card { min-height: 520px; padding: 32px 24px; }
   .p3-footer-grid { display: grid !important; grid-template-columns: 1fr 1fr !important; gap: 24px 16px !important; }
   .p3-footer-brand { grid-column: 1 / -1; }
   .p3-footer-bottom { flex-wrap: wrap; justify-content: center; text-align: center; }
@@ -335,7 +342,16 @@ body.fm-active { background: #fff; margin:0; padding:0; opacity:1 !important; }
   .fm-hero-stat-num { font-size: 1.4rem; }
   .fm-section-heading { font-size: 1.4rem; }
   .fm-gs-steps { grid-template-columns: 1fr; max-width: 340px; margin: 0 auto; }
-  .fm-why-grid { grid-template-columns: 1fr; }
+  .fm-schol { grid-template-columns: 1fr; }
+  .fm-schol-visual { aspect-ratio: 16/9; }
+  .fm-schol-body { padding: 22px 20px 24px; }
+  .fm-schol-list { grid-template-columns: 1fr; gap: 11px; }
+  /* One column at phone width, so the card becomes the homepage's compact row
+     (122px thumbnail beside the text) rather than six tall stacked posters. */
+  .fm-why-grid { grid-template-columns: 1fr; gap: 12px; max-width: 480px; margin-left: auto; margin-right: auto; }
+  .fm-why-card { display: grid; grid-template-columns: 122px 1fr; }
+  .fm-why-card-img { aspect-ratio: auto; height: 100%; min-height: 124px; }
+  .fm-why-card-body { padding: 14px 16px 13px; }
 }
 /* Chrome family (Sep 2026 parity pass). Family only: the nav, overlay and footer are body-level siblings that inherit Webflow's body line-height (30.006px), the value every nav measurement depends on, so line-height is never set here. Element selectors as well as the containers, because Webflow's compiled stylesheet sets Inter directly on .p3-nav-cta, .p3-footer-col-title, .p3-footer-tagline and .pp-mob-overlay-link, and a direct rule beats inheritance. */
 .p3-nav, .pp-mob-overlay, .p3-footer, .p3-nav .p3-nav-links a, .p3-nav .p3-nav-link, .p3-nav .p3-nav-cta, .pp-mob-overlay a, .pp-mob-overlay .pp-mob-overlay-link, .pp-mob-overlay .pp-mob-overlay-cta, .p3-footer h4, .p3-footer p, .p3-footer a, .p3-footer .p3-footer-col-title, .p3-footer .p3-footer-tagline, .p3-footer .p3-footer-location, .p3-footer .p3-footer-link { font-family: 'Plus Jakarta Sans', sans-serif; }
@@ -469,14 +485,14 @@ body.fm-active { background: #fff; margin:0; padding:0; opacity:1 !important; }
   // ═══ WHY JOIN P3 ═══
   var whySection = document.createElement('section');
   whySection.className = 'fm-why-mentor fm-section';
-  whySection.innerHTML = `<div class="fm-container"><div class="fm-section-label">Why Join P3</div><h2 class="fm-section-heading">Everything you need to <em>launch your career</em></h2><p class="fm-section-sub">P3 isn't just an app. It's your personal career accelerator. Free forever for students.</p><div class="fm-why-grid"><div class="fm-why-card"><div class="fm-why-card-img"><img src="https://tparis7.github.io/Mentor-Page-Redesign/new-mentor.jpeg" alt="AI Smart Matching"><div class="fm-why-card-overlay"><h3>AI Smart Matching</h3></div></div><div class="fm-why-card-body"><div class="fm-why-card-role">Your Perfect Mentor</div><p>Get matched with mentors based on your career goals, interests, and academic stage. Every connection is intentional: you choose who guides you.</p></div></div><div class="fm-why-card"><div class="fm-why-card-img"><img src="https://tparis7.github.io/Mentor-Page-Redesign/hospital.jpeg" alt="Video Guidance"><div class="fm-why-card-overlay"><h3>Video Guidance</h3></div></div><div class="fm-why-card-body"><div class="fm-why-card-role">Real Answers</div><p>Submit text-based questions and receive personalized 90-second video responses from professionals who've walked the path.</p></div></div><div class="fm-why-card"><div class="fm-why-card-img"><img src="https://tparis7.github.io/Mentor-Page-Redesign/224A1273_Original.jpg" alt="Monthly Scholarships"><div class="fm-why-card-overlay"><h3>Monthly Scholarships</h3></div></div><div class="fm-why-card-body"><div class="fm-why-card-role">Financial Support</div><p>Apply for P3's monthly scholarship, with nearly $100,000 awarded since 2018. Be an active mentee to qualify.</p></div></div><div class="fm-why-card"><div class="fm-why-card-img"><img src="https://tparis7.github.io/Mentor-Page-Redesign/1760104448089.jpeg" alt="Career Opportunities" class="top-align"><div class="fm-why-card-overlay"><h3>Career Opportunities</h3></div></div><div class="fm-why-card-body"><div class="fm-why-card-role">Jobs &amp; Internships</div><p>Browse curated internships, jobs, and career resources across STEM, finance, legal, business, and more.</p></div></div><div class="fm-why-card"><div class="fm-why-card-img"><img src="https://tparis7.github.io/Student-Page-Redesign/milestones-artwork.webp" alt="The Milestones climb in the P3 app" class="ascent"><div class="fm-why-card-overlay"><h3>Track Your Progress</h3></div></div><div class="fm-why-card-body"><div class="fm-why-card-role">Milestone Pathways</div><p>Check off real-life milestones, from campus visits to your first job. Stay focused and show mentors where you are.</p></div></div><div class="fm-why-card"><div class="fm-why-card-img"><img src="https://tparis7.github.io/Student-Page-Redesign/Copy%20of%20IMG_1719.jpg" alt="Explore &amp; Learn"><div class="fm-why-card-overlay"><h3>Explore &amp; Learn</h3></div></div><div class="fm-why-card-body"><div class="fm-why-card-role">Video Library</div><p>Access a curated feed of career advice videos from mentors across industries. Learn from professionals in healthcare, tech, business, and more.</p></div></div></div></div>`;
+  whySection.innerHTML = `<div class="fm-container"><div class="fm-section-label">Why Join P3</div><h2 class="fm-section-heading">Everything you need to <em>launch your career</em></h2><p class="fm-section-sub">P3 isn't just an app. It's your personal career accelerator. Free forever for students.</p><div class="fm-why-grid"><div class="fm-why-card"><div class="fm-why-card-img"><img src="https://tparis7.github.io/Mentor-Page-Redesign/new-mentor.jpeg" alt="A P3 mentor and student"></div><div class="fm-why-card-body"><h3>AI Smart Matching</h3><p>Matched to mentors by your goals, interests, and stage. You choose who guides you.</p></div></div><div class="fm-why-card"><div class="fm-why-card-img"><img src="https://tparis7.github.io/Mentor-Page-Redesign/hospital.jpeg" alt="A mentor recording a video answer"></div><div class="fm-why-card-body"><h3>Video Guidance</h3><p>Ask in text, get a personal 90-second video back from someone who has done it.</p></div></div><div class="fm-why-card"><div class="fm-why-card-img"><img src="https://tparis7.github.io/Mentor-Page-Redesign/224A1273_Original.jpg" alt="P3 scholarship winners"></div><div class="fm-why-card-body"><h3>Monthly Scholarships</h3><p>Nearly $100,000 awarded since 2018. Be an active mentee and apply each month.</p></div></div><div class="fm-why-card"><div class="fm-why-card-img"><img src="https://tparis7.github.io/Mentor-Page-Redesign/1760104448089.jpeg" alt="Students at a P3 career event"></div><div class="fm-why-card-body"><h3>Career Opportunities</h3><p>Curated internships, jobs, and resources across STEM, finance, law, business, and more.</p></div></div><div class="fm-why-card"><div class="fm-why-card-img"><img src="https://tparis7.github.io/Student-Page-Redesign/milestones-artwork.webp" alt="The Milestones climb in the P3 app" class="ascent"></div><div class="fm-why-card-body"><h3>Milestone Pathways</h3><p>Check off real milestones, from campus visits to your first job. Stay focused, stay visible.</p></div></div><div class="fm-why-card"><div class="fm-why-card-img"><img src="https://tparis7.github.io/Student-Page-Redesign/Copy%20of%20IMG_1719.jpg" alt="A student watching a mentor video"></div><div class="fm-why-card-body"><h3>Video Library</h3><p>A curated feed of career advice from mentors in healthcare, tech, business, and more.</p></div></div></div></div>`;
   root.appendChild(whySection);
 
   // ═══ GET STARTED ═══
   var getStarted = document.createElement('section');
   getStarted.className = 'fm-get-started';
   getStarted.id = 'fm-get-started';
-  getStarted.innerHTML = `<div class="fm-gs-bubbles"><img class="fm-gs-bubble" src="https://tparis7.github.io/Mentor-Page-Redesign/mentors/01J9NVS90T9N1P16JT92N94QZB.jpg" alt=""><img class="fm-gs-bubble" src="https://tparis7.github.io/Mentor-Page-Redesign/mentors/01HXX2QF7XB3SCFQCZCB1CEY5N.jpg" alt=""><img class="fm-gs-bubble" src="https://tparis7.github.io/Mentor-Page-Redesign/mentors/01J6W5Z2CZC32ENFW8NXKCBA0W.jpg" alt=""><img class="fm-gs-bubble" src="https://tparis7.github.io/Mentor-Page-Redesign/mentors/01JZERCH0G6S1KP2DCKZ1NAZ60.jpg" alt=""><img class="fm-gs-bubble" src="https://tparis7.github.io/Mentor-Page-Redesign/mentors/01JWX0RD5K7G6K49JMKXPN03Y2.jpg" alt=""><img class="fm-gs-bubble" src="https://tparis7.github.io/Mentor-Page-Redesign/mentors/01JPNCNQSNC6B5J3CMQX5N8PGA.jpg" alt=""><img class="fm-gs-bubble" src="https://tparis7.github.io/Mentor-Page-Redesign/mentors/01HXADB1E3N9CF3XV7FXXDY25K.jpg" alt=""><img class="fm-gs-bubble" src="https://tparis7.github.io/Mentor-Page-Redesign/mentors/01JNB2J7ZGB8NZC7ZVQJYB0PHP.jpg" alt=""><img class="fm-gs-bubble" src="https://tparis7.github.io/Mentor-Page-Redesign/mentors/01K2GDQC2RV2AZB52PFFNA2SAW.jpg" alt=""><img class="fm-gs-bubble" src="https://tparis7.github.io/Mentor-Page-Redesign/mentors/01HXJ7KP3DKKM0EEQWGPJNBNJ2.jpg" alt=""><img class="fm-gs-bubble" src="https://tparis7.github.io/Mentor-Page-Redesign/mentors/01JWKTEQZ6J1V88Y0ZWKWCWW9G.jpg" alt=""><img class="fm-gs-bubble" src="https://tparis7.github.io/Mentor-Page-Redesign/mentors/01JWM1DDK12KNBSXJPSER52BCH.jpg" alt=""></div><div class="fm-container"><div class="fm-gs-header"><h2>Get started in <em>4 simple steps</em></h2><p>P3 guides you from download to your first mentor connection.</p></div><div class="fm-gs-steps"><div class="fm-gs-step"><div class="fm-gs-step-img"><div class="fm-gs-step-abstract bg-1"><span class="fm-gs-num" style="--gs:#D93A3A">1</span><svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="22" y="22" width="36" height="48" rx="7" stroke="#D93A3A" stroke-width="2.5"/><circle cx="40" cy="62" r="3" fill="#D93A3A"/><line x1="30" y1="34" x2="50" y2="34" stroke="#D93A3A" stroke-width="2" stroke-linecap="round"/><line x1="30" y1="42" x2="44" y2="42" stroke="#D93A3A" stroke-width="2" stroke-linecap="round" opacity="0.5"/><path d="M34 50l4 4 8-8" stroke="#D93A3A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div><div class="fm-gs-step-body"><h3>Download &amp; Register</h3><p>Get the P3 app on iOS or Android. Sign up with Google or email in just 2 minutes.</p></div></div><div class="fm-gs-step"><div class="fm-gs-step-img"><div class="fm-gs-step-abstract bg-2"><span class="fm-gs-num" style="--gs:#6366f1">2</span><svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="44" cy="32" r="12" stroke="#6366f1" stroke-width="2.5"/><circle cx="44" cy="32" r="5" fill="#6366f1" opacity="0.3"/><path d="M26 68v-4a18 18 0 0 1 36 0v4" stroke="#6366f1" stroke-width="2.5" stroke-linecap="round"/><line x1="50" y1="56" x2="60" y2="56" stroke="#6366f1" stroke-width="2" stroke-linecap="round"/><line x1="50" y1="62" x2="57" y2="62" stroke="#6366f1" stroke-width="2" stroke-linecap="round" opacity="0.5"/></svg></div></div><div class="fm-gs-step-body"><h3>Build Your Profile</h3><p>Tell us your career goals, education level, and what kind of guidance you need. The more detail, the better your match.</p></div></div><div class="fm-gs-step"><div class="fm-gs-step-img"><div class="fm-gs-step-abstract bg-3"><span class="fm-gs-num" style="--gs:#22c55e">3</span><svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="44" cy="44" r="22" stroke="#22c55e" stroke-width="2.5"/><path d="M33 44l8 8 14-14" stroke="#22c55e" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><circle cx="44" cy="44" r="28" stroke="#22c55e" stroke-width="1" opacity="0.25" stroke-dasharray="4 4"/></svg></div></div><div class="fm-gs-step-body"><h3>Get Matched</h3><p>Our AI recommends mentors based on your goals and interests. Browse profiles, read bios, and choose who you want to connect with.</p></div></div><div class="fm-gs-step"><div class="fm-gs-step-img"><div class="fm-gs-step-abstract bg-4"><span class="fm-gs-num" style="--gs:#f59e0b">4</span><svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="14" y="26" width="28" height="20" rx="4" stroke="#f59e0b" stroke-width="2.5"/><polygon points="56,28 68,36 56,44" stroke="#f59e0b" stroke-width="2.5" fill="#f59e0b" fill-opacity="0.2" stroke-linejoin="round"/><circle cx="28" cy="62" r="9" stroke="#f59e0b" stroke-width="2" opacity="0.5"/><circle cx="56" cy="62" r="9" stroke="#f59e0b" stroke-width="2" opacity="0.5"/><line x1="37" y1="62" x2="47" y2="62" stroke="#f59e0b" stroke-width="2" stroke-linecap="round" stroke-dasharray="3 3"/></svg></div></div><div class="fm-gs-step-body"><h3>Start Learning</h3><p>Ask questions, receive video guidance, track milestones, and apply for monthly scholarships.</p></div></div></div></div>`;
+  getStarted.innerHTML = `<div class="fm-gs-bubbles"><img class="fm-gs-bubble" src="https://tparis7.github.io/Mentor-Page-Redesign/mentors/01J9NVS90T9N1P16JT92N94QZB.jpg" alt=""><img class="fm-gs-bubble" src="https://tparis7.github.io/Mentor-Page-Redesign/mentors/01HXX2QF7XB3SCFQCZCB1CEY5N.jpg" alt=""><img class="fm-gs-bubble" src="https://tparis7.github.io/Mentor-Page-Redesign/mentors/01J6W5Z2CZC32ENFW8NXKCBA0W.jpg" alt=""><img class="fm-gs-bubble" src="https://tparis7.github.io/Mentor-Page-Redesign/mentors/01JZERCH0G6S1KP2DCKZ1NAZ60.jpg" alt=""><img class="fm-gs-bubble" src="https://tparis7.github.io/Mentor-Page-Redesign/mentors/01JWX0RD5K7G6K49JMKXPN03Y2.jpg" alt=""><img class="fm-gs-bubble" src="https://tparis7.github.io/Mentor-Page-Redesign/mentors/01JPNCNQSNC6B5J3CMQX5N8PGA.jpg" alt=""><img class="fm-gs-bubble" src="https://tparis7.github.io/Mentor-Page-Redesign/mentors/01HXADB1E3N9CF3XV7FXXDY25K.jpg" alt=""><img class="fm-gs-bubble" src="https://tparis7.github.io/Mentor-Page-Redesign/mentors/01JNB2J7ZGB8NZC7ZVQJYB0PHP.jpg" alt=""><img class="fm-gs-bubble" src="https://tparis7.github.io/Mentor-Page-Redesign/mentors/01K2GDQC2RV2AZB52PFFNA2SAW.jpg" alt=""><img class="fm-gs-bubble" src="https://tparis7.github.io/Mentor-Page-Redesign/mentors/01HXJ7KP3DKKM0EEQWGPJNBNJ2.jpg" alt=""><img class="fm-gs-bubble" src="https://tparis7.github.io/Mentor-Page-Redesign/mentors/01JWKTEQZ6J1V88Y0ZWKWCWW9G.jpg" alt=""><img class="fm-gs-bubble" src="https://tparis7.github.io/Mentor-Page-Redesign/mentors/01JWM1DDK12KNBSXJPSER52BCH.jpg" alt=""></div><div class="fm-container"><div class="fm-gs-header"><h2>Get started in <em>4 simple steps</em></h2><p>P3 guides you from download to your first mentor connection.</p></div><div class="fm-gs-steps"><div class="fm-gs-step"><div class="fm-gs-step-img"><div class="fm-gs-step-abstract bg-1"><span class="fm-gs-num" style="--gs:#D93A3A">1</span><svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="22" y="22" width="36" height="48" rx="7" stroke="#D93A3A" stroke-width="2.5"/><circle cx="40" cy="62" r="3" fill="#D93A3A"/><line x1="30" y1="34" x2="50" y2="34" stroke="#D93A3A" stroke-width="2" stroke-linecap="round"/><line x1="30" y1="42" x2="44" y2="42" stroke="#D93A3A" stroke-width="2" stroke-linecap="round" opacity="0.5"/><path d="M34 50l4 4 8-8" stroke="#D93A3A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div><div class="fm-gs-step-body"><h3>Download &amp; Register</h3><p>Get the P3 app on iOS or Android. Sign up with Google or email in just 2 minutes.</p></div></div><div class="fm-gs-step"><div class="fm-gs-step-img"><div class="fm-gs-step-abstract bg-2"><span class="fm-gs-num" style="--gs:#6366f1">2</span><svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="44" cy="32" r="12" stroke="#6366f1" stroke-width="2.5"/><circle cx="44" cy="32" r="5" fill="#6366f1" opacity="0.3"/><path d="M26 68v-4a18 18 0 0 1 36 0v4" stroke="#6366f1" stroke-width="2.5" stroke-linecap="round"/><line x1="50" y1="56" x2="60" y2="56" stroke="#6366f1" stroke-width="2" stroke-linecap="round"/><line x1="50" y1="62" x2="57" y2="62" stroke="#6366f1" stroke-width="2" stroke-linecap="round" opacity="0.5"/></svg></div></div><div class="fm-gs-step-body"><h3>Build Your Profile</h3><p>Tell us your goals, education level, and the guidance you need. More detail, better matches.</p></div></div><div class="fm-gs-step"><div class="fm-gs-step-img"><div class="fm-gs-step-abstract bg-3"><span class="fm-gs-num" style="--gs:#22c55e">3</span><svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="44" cy="44" r="22" stroke="#22c55e" stroke-width="2.5"/><path d="M33 44l8 8 14-14" stroke="#22c55e" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><circle cx="44" cy="44" r="28" stroke="#22c55e" stroke-width="1" opacity="0.25" stroke-dasharray="4 4"/></svg></div></div><div class="fm-gs-step-body"><h3>Get Matched</h3><p>Our AI recommends mentors for you. Browse their profiles and choose who to connect with.</p></div></div><div class="fm-gs-step"><div class="fm-gs-step-img"><div class="fm-gs-step-abstract bg-4"><span class="fm-gs-num" style="--gs:#f59e0b">4</span><svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="14" y="26" width="28" height="20" rx="4" stroke="#f59e0b" stroke-width="2.5"/><polygon points="56,28 68,36 56,44" stroke="#f59e0b" stroke-width="2.5" fill="#f59e0b" fill-opacity="0.2" stroke-linejoin="round"/><circle cx="28" cy="62" r="9" stroke="#f59e0b" stroke-width="2" opacity="0.5"/><circle cx="56" cy="62" r="9" stroke="#f59e0b" stroke-width="2" opacity="0.5"/><line x1="37" y1="62" x2="47" y2="62" stroke="#f59e0b" stroke-width="2" stroke-linecap="round" stroke-dasharray="3 3"/></svg></div></div><div class="fm-gs-step-body"><h3>Start Learning</h3><p>Ask questions, get video guidance, track milestones, and apply for scholarships.</p></div></div></div></div>`;
   root.appendChild(getStarted);
 
   // ═══ FEATURES ═══
@@ -496,7 +512,7 @@ body.fm-active { background: #fff; margin:0; padding:0; opacity:1 !important; }
   // ═══ DUAL CARDS ═══
   var dualCards = document.createElement('section');
   dualCards.className = 'fm-dual-cards fm-section';
-  dualCards.innerHTML = `<div class="fm-container"><div style="text-align:center; margin-bottom: 36px;"><div class="fm-section-label">Resources</div><h2 class="fm-section-heading">Scholarships &amp; <em>inspiration</em></h2></div><div class="fm-dual-grid"><div class="fm-dual-card"><div class="fm-dual-card-bg"><img src="https://tparis7.github.io/Mentor-Page-Redesign/224A1273_Original.jpg" alt=""></div><div class="fm-dual-card-content"><div class="fm-section-label">Monthly Scholarships</div><h3>Financial support for <em>ambitious students</em></h3><p>P3's monthly scholarship program has awarded nearly $100,000 to high school and college students since 2018.</p><div class="fm-dual-card-features"><div class="fm-dual-feat">Download the P3 app and become an active mentee</div><div class="fm-dual-feat">Submit your application by the 1st of each month</div><div class="fm-dual-feat">Winners selected based on engagement and need</div><div class="fm-dual-feat">Open to high school and college students nationwide</div></div><a href="https://pulseofp3.org/scholarships" class="fm-btn fm-btn-primary fm-btn-arrow">Apply Today</a></div></div><div class="fm-dual-card"><div class="fm-dual-card-bg"><img src="https://tparis7.github.io/Student-Page-Redesign/Book%20Cover.jpg" alt=""></div><div class="fm-dual-card-content"><div class="fm-section-label">The P3 Book</div><h3>Pulse of <em>Perseverance</em> Book</h3><p>The inspiring story behind P3, written by our co-founders Dr. Maxime Madhere, Dr. Joseph Semien Jr., and Dr. Pierre Johnson. Three friends from Baton Rouge who defied the odds to become doctors and built a movement.</p><blockquote>"Read this book. Share it with any young person who needs to know that the odds can be beaten." &mdash; Dr. James E.K. Hildreth, Meharry Medical College</blockquote><a href="https://www.amazon.com/Pulse-Perseverance-Doctors-Journey-Success/dp/099927970X" target="_blank" class="fm-btn fm-btn-primary fm-btn-arrow">Get the Book</a></div></div></div></div>`;
+  dualCards.innerHTML = `<div class="fm-container"><div class="fm-schol"><div class="fm-schol-visual"><img src="https://tparis7.github.io/Mentor-Page-Redesign/224A1273_Original.jpg" alt="A P3 monthly scholarship winner with her award"></div><div class="fm-schol-body"><div class="fm-section-label">Scholarships</div><h2>Financial support for <em>ambitious students</em></h2><p>Nearly $100,000 awarded since 2018, every month, to high school and college students nationwide.</p><ul class="fm-schol-list"><li>Be an active mentee on the P3 app</li><li>Apply by the 1st of each month</li><li>Selected on engagement and need</li><li>High school and college, nationwide</li></ul><a href="https://pulseofp3.org/scholarships" class="fm-btn fm-btn-primary fm-btn-arrow">Apply Today</a></div></div></div>`;
   root.appendChild(dualCards);
 
   // ═══ COMMUNITY GALLERY ═══
